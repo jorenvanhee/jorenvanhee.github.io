@@ -18,3 +18,13 @@ description: test
         {% endfor %}
     </ul>
 {% endif %}
+
+{% if site.projects.size > 0 %}
+    <h2>Projects</h2>
+
+    <ul>
+        {% for project in site.projects %}
+            <li><a href="{{ project.external.url }}">{{ project.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
