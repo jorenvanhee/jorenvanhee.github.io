@@ -1,0 +1,20 @@
+---
+layout: default
+description: test
+---
+
+<h1>Joren Van Hee</h1>
+
+<section>
+    <p>Hi, I'm Joren, a web developer from Belgium. I also play the drums.</p>
+</section>
+
+{% if site.posts.size > 0 %}
+    <h2>Articles</h2>
+
+    <ul>
+        {% for post in site.posts %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
