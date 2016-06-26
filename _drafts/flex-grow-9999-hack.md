@@ -5,7 +5,7 @@ title: "Flex-grow 9999 Hack"
 
 The Germans broke my css a while ago. Well, not literally. But their long words did. A few days before the issue occurred, I saw a talk by Zoe Mickley Gillenwater at Frontend United entitled "Using Flexbox Today". That talk inspired me to solve the problem with flexbox.
 
-My css component was originally float based, but I'm going to start from a Flexbox point of view to save us some time.
+My css component was originally float based, but I'm going to start from a flexbox point of view to save us some time.
 
 Imagine a flex container (`display: flex`) with two flex items in a row (`flex-direction: row`). Item A on the left, and item B on the right. Item A can not grow, so I give it a `flex-grow` value of `0` (the default value). Item B has to take up all the remaining space in the container. This can be done with `flex-grow: 1`.
 
