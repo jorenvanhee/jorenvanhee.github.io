@@ -9,7 +9,7 @@ My css component was originally float based, but I'm going to start from a Flexb
 
 Imagine a flex container (`display: flex`) with two flex items in a row (`flex-direction: row`). Item A on the left, and item B on the right. Item A can not grow, so I give it a `flex-grow` value of `0` (the default value). Item B has to take up all the remaining space in the container. This can be done with `flex-grow: 1`.
 
-I would like the flex items to be stacked on top of each other when necessary. Item B has to jump on the second line, if there's not enough space for it to be at least 20 ems wide. Adding `flex-wrap: wrap` to the container and `flex-basis: 20em` to item B does the job.
+I would like the flex items to be stacked on top of each other when necessary. Item B has to jump onto the second line, if there's not enough space for it to be at least 20 ems wide. Adding `flex-wrap: wrap` to the container and `flex-basis: 20em` to item B does the job.
 
 {% highlight css %}
 .container {
@@ -36,10 +36,10 @@ Now comes the tricky part. I want item A to stretch to the entire width of the c
 
 Reasons why the breakpoint could be hard to define are:
 
-1. The width of item A is unknown. For instance, if it contains some words that take more space in another language.
-2. We don't know the width of the container where it is being used in.
+1. The width of item A is unknown. For instance, if it contains words that are longer in another language.
+2. We don't know the width of the components parent element. For instance, if it is used in a sidebar and in some other places.
 
-Let's do this without media queries. We will update the `flex-grow` value of item A to `1`. The problem now is that item A will also grow if both items are next to each other. To fix this, we can set a ridiculously high `flex-grow` value like `9999` to item B.
+Let's do this without media queries. We will update the `flex-grow` value of item A to `1`. The problem now is that item A will also grow if both items are next to each other. To fix this, we can assign a ridiculously large `flex-grow` value like `9999` to item B.
 
 {% highlight css %}
 .container {
@@ -66,4 +66,4 @@ So why does this work? Flex grow defines how much of the remaining free space a 
 
 In our case item A gets 1/10000 of the remaining space, which results in 0 pixels (1 / 10000 * 100 = 0.01). Eventually, if there's enough remaining space, item A will receive some pixels. But you'd need a very large screen for that to happen. You can do the math yourself.
 
-If you want to read a more in depth article on how flex grow works, there's [an excelent blog post](https://css-tricks.com/flex-grow-is-weird/) on css-tricks.com.
+If you want to read a more in depth article on how flex grow works, there's [an excellent blog post](https://css-tricks.com/flex-grow-is-weird/) on css-tricks.com.
