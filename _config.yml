@@ -21,6 +21,9 @@ github_username:  jekyll
 collections:
   projects:
     output: false
+  posts:
+    output: true
+    permalink: /:title/
 
 # Build settings
 markdown: kramdown
