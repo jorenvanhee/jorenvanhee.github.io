@@ -5,7 +5,7 @@ title: "Flex-grow 9999 Hack"
 
 The Germans broke my css a while ago. Well, not literally. But their long words did. A few days before the issue occurred, I saw a talk by Zoe Mickley Gillenwater at Frontend United entitled "Using Flexbox Today". That talk inspired me to solve the problem with flexbox.
 
-Before I explain the flex-grow 9999 hack in detail, let me very briefly describe what it does. The flex-grow 9999 hack makes a flex item behave like it has two flex grow values. It prevents a flex item in a row from growing, but allows it to grow if it's wrapped into its own line. All without the use of media queries.
+Before I explain the flex-grow 9999 hack in detail, let me briefly describe what it does. The flex-grow 9999 hack makes a flex item behave like it has two flex grow values. It prevents a flex item in a row from growing, but allows it to grow if it's wrapped into its own line. All without the use of media queries.
 
 If that didn't make sense, don't worry. The example should make it clear.
 
