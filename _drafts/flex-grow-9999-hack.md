@@ -3,7 +3,7 @@ layout: post
 title: "Flex-grow 9999 Hack"
 ---
 
-The Germans broke my css a while ago. Well, not literally. But their long words did. A few days before the issue occurred, I saw a talk by Zoe Mickley Gillenwater at Frontend United entitled "Using Flexbox Today". That talk inspired me to solve the problem with flexbox.
+The Germans broke my CSS a while ago. Well, not literally, but their long words did. A few days before the issue occurred, I saw a talk by Zoe Mickley Gillenwater at Frontend United entitled "Using Flexbox Today". That talk inspired me to solve the problem with flexbox.
 
 Before I explain the flex-grow 9999 hack in detail, let me briefly describe what it does. The flex-grow 9999 hack makes a flex item behave like it has two flex grow values. It prevents a flex item in a row from growing, but allows it to grow if it's wrapped into its own line. All without the use of media queries.
 
@@ -38,7 +38,7 @@ Now comes the tricky part. I want item A to stretch to the entire width of the c
 
 Reasons why the breakpoint could be hard to define are:
 
-1. The width of item A is unknown. For instance, if it contains words that are longer in another language.
+1. The width of item A is unknown. For instance, it contains words that are longer in another language.
 2. We don't know the width of the components parent element. For instance, if it is used in a sidebar and in some other places.
 
 Let's do this without media queries. We will update the `flex-grow` value of item A to `1`. The problem now is that item A will also grow if both items are next to each other. To fix this, we can assign a ridiculously large `flex-grow` value like `9999` to item B.
