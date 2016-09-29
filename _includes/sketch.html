@@ -10,7 +10,6 @@
     {% assign srcset = "" %}
 
     {% for srcsetWidth in srcsetWidths %}
-
         {% capture srcsetPart %}
             {{ imageDir }}{{ imageFilename }}_w_{{ srcsetWidth }}.{{ imageExt }} {{ srcsetWidth }}w
         {% endcapture %}
@@ -23,6 +22,9 @@
 
         {% assign srcset = srcset | append: srcsetPart %}
     {% endfor %}
+
+    {% assign srcFallback = srcset | split: " " %}
+    {% assign srcFallback = srcFallback[0] %}
 {% endif %}
 
 {% if include.sizes %}
@@ -30,9 +32,18 @@
 {% endif %}
 
 <div class="sketch">
-    <img class="sketch__img"
-         {% if srcset and sizes %}srcset="{{ srcset }}"{% else %}src="{{ imageDir }}{{ include.image }}"{% endif %}
-         {% if srcset and sizes %}sizes="{{ sizes }}"{% endif %}
-         alt=""
-         style="{% if include.max-width %}max-width: {{ include.max-width }};{% endif %}">
+    <img
+        class="sketch__img"
+        alt=""
+        {% if srcset and sizes %}
+            src="{{ srcFallback }}"
+            srcset="{{ srcset }}"
+            sizes="{{ sizes }}"
+        {% else %}
+            src="{{ imageDir }}{{ include.image }}"
+        {% endif %}
+        {% if include.max-width %}
+            style="max-width: {{ include.max-width }};"
+        {% endif %}
+    >
 </div>
