@@ -1,0 +1,38 @@
+{% capture imageDir %}/assets/collections/{{ page.collection }}/{{ page.slug }}/{% endcapture %}
+
+{% if include.srcset-widths %}
+    {% assign imageParts = include.image | split: "." %}
+    {% assign imageExt = imageParts | shift %}
+    {% assign imageFilename = imageParts | pop %}
+
+    {% assign srcsetWidths = include.srcset-widths | split: "," %}
+
+    {% assign srcset = "" %}
+
+    {% for srcsetWidth in srcsetWidths %}
+
+        {% capture srcsetPart %}
+            {{ imageDir }}{{ imageFilename }}_w_{{ srcsetWidth }}.{{ imageExt }} {{ srcsetWidth }}w
+        {% endcapture %}
+
+        {% assign srcsetPart = srcsetPart | strip_newlines | strip %}
+
+        {% if srcsetWidth != srcsetWidths.last %}
+            {% assign srcsetPart = srcsetPart | append: ", " %}
+        {% endif %}
+
+        {% assign srcset = srcset | append: srcsetPart %}
+    {% endfor %}
+{% endif %}
+
+{% if include.sizes %}
+    {% assign sizes = include.sizes %}
+{% endif %}
+
+<div class="sketch">
+    <img class="sketch__img"
+         {% if srcset and sizes %}srcset="{{ srcset }}"{% else %}src="{{ imageDir }}{{ include.image }}"{% endif %}
+         {% if srcset and sizes %}sizes="{{ sizes }}"{% endif %}
+         alt=""
+         style="{% if include.max-width %}max-width: {{ include.max-width }};{% endif %}">
+</div>

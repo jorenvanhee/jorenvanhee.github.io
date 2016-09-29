@@ -1,9 +1,6 @@
-body {
-    margin-left: 0;
-    margin-right: 0;
+html {
     font-size: 100%;
     line-height: 1.4;
-    background-color: floralwhite;
 
     @media (min-width: 30em) {
         font-size: 17px;
@@ -13,6 +10,12 @@ body {
     @media (min-width: 42em) {
         font-size: 19px;
     }
+}
+
+body {
+    margin-left: 0;
+    margin-right: 0;
+    background-color: floralwhite;
 }
 
 .container {
@@ -37,3 +40,20 @@ body {
 p code {
     background-color: rgba(#000, .05);
 }
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.sketch {
+    padding: 1.5rem 1rem;
+    border: 1px solid rgba(0, 0, 0, .2);
+    background-color: #fff;
+}
+
+    .sketch__img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }

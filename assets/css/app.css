@@ -1,22 +1,25 @@
-body {
-  margin-left: 0;
-  margin-right: 0;
+html {
   font-size: 100%;
   line-height: 1.4;
-  background-color: floralwhite;
   /* Yes, the answer to life the universe and everything... */
 }
 
 @media (min-width: 30em) {
-  body {
+  html {
     font-size: 17px;
   }
 }
 
 @media (min-width: 42em) {
-  body {
+  html {
     font-size: 19px;
   }
+}
+
+body {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: floralwhite;
 }
 
 .container {
@@ -40,6 +43,23 @@ body {
 
 p code {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.sketch {
+  padding: 1.5rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.sketch__img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */

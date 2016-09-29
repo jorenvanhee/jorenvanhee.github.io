@@ -30,9 +30,15 @@ I would like the flex items to be stacked on top of each other when necessary. I
 }
 {% endhighlight %}
 
-[[[ SKETCH ]]]
-
 You can see what we have so far on [JSFiddle](https://jsfiddle.net/jorenvanhee/rmaeak0q/0/).
+
+{%
+    include sketch.html
+        image="sketch1.jpg"
+        srcset-widths="350,700"
+        sizes="350px"
+        max-width="350px"
+%}
 
 Now comes the tricky part. I want item A to stretch to the entire width of the container, only if the items are wrapped into multiple lines. We could use media queries to update the `flex-grow` value, but in my case, the breakpoint was hard to define.
 
@@ -60,9 +66,15 @@ Let's do this without media queries. We will update the `flex-grow` value of ite
 }
 {% endhighlight %}
 
-[[[ SKETCH 2 ]]]
-
 Check out the final result on [JSFiddle](https://jsfiddle.net/jorenvanhee/rmaeak0q/).
+
+{%
+    include sketch.html
+        image="sketch2.jpg"
+        srcset-widths="350,700"
+        sizes="350px"
+        max-width="350px"
+%}
 
 So why does this work? Flex grow defines how much of the remaining free space a flex item receives. Let's say there are 100 pixels of free space left. We can then give item A 1/4 (25px) of the remaining space (`flex-grow: 1`), and item B 3/4 (75px) of the remaining space (`flex-grow: 3`).
 

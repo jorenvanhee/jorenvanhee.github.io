@@ -2,3 +2,4 @@ _site
 .jekyll-metadata
 node_modules
 assets/css/*.css.map
+.DS_Store
