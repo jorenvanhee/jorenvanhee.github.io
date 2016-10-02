@@ -1,14 +1,10 @@
 html {
-    font-size: 100%;
+    font-size: 106.25%;
     line-height: 1.4;
-
-    @media (min-width: 30em) {
-        font-size: 17px;
-    }
 
     /* Yes, the answer to life the universe and everything... */
     @media (min-width: 42em) {
-        font-size: 19px;
+        font-size: 118.75%;
     }
 }
 
