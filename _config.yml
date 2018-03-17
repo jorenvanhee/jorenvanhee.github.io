@@ -30,7 +30,5 @@ markdown: kramdown
 exclude: [
   'node_modules',
   'package.json',
-  'gulp',
-  'gulpfile.js',
   'assets/css/*.css.map'
 ]
