@@ -1,5 +1,6 @@
 _site
 .jekyll-metadata
 node_modules
-assets/css
+assets/build
 .DS_Store
+yarn-error.log
