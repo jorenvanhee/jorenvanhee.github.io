@@ -30,5 +30,8 @@ markdown: kramdown
 exclude: [
   'node_modules',
   'package.json',
-  'assets/css/*.css.map'
+  'tailwind.js',
+  'yarn.lock',
+  'webpack.config.js',
+  'postcss.config.js',
 ]
