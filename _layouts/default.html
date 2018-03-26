@@ -9,7 +9,7 @@
         <meta name="description" content="{{ page.description }}">
     {% endif %}
 
-    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/dist/app.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -17,11 +17,7 @@
 
 {{ content }}
 
-{% if jekyll.environment == 'local' %}
-    <!--[if (gt IE 9)]><!-->
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-    <!--<![endif]-->
-{% endif %}
+<script src="/dist/main.js"></script>
 
 {% if jekyll.environment == 'production' %}
     <script>

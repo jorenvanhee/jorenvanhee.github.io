@@ -1,27 +1,34 @@
 var MiniCssExtractPlugin = require("mini-css-extract-plugin")
 var path = require('path')
 
-module.exports = {
-  entry: './index.js',
-  output: {
-    path: path.resolve(__dirname, 'assets/build'),
-    filename: 'bundle.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader',
-        ]
-      }
+module.exports = function (env, argv) {
+  var isProduction = argv.mode === 'production';
+
+  return {
+    entry: './_assets/js/index.js',
+    output: {
+      path: path.resolve(__dirname, '_site/dist'),
+    },
+    devServer: {
+      contentBase: path.resolve(__dirname, '_site'),
+      publicPath: '/dist/'
+    },
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: [
+            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader',
+          ]
+        }
+      ]
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: 'app.css'
+      }),
     ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'app.css'
-    }),
-  ]
+  }
 }
