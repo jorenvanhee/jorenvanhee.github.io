@@ -10,10 +10,10 @@ module.exports = function (env, argv) {
     entry: './_assets/js/index.js',
     output: {
       path: path.resolve(__dirname, '_site/dist'),
+      publicPath: '/dist/'
     },
     devServer: {
       contentBase: path.resolve(__dirname, '_site'),
-      publicPath: '/dist/'
       publicPath: '/dist/',
       open: true
     },
