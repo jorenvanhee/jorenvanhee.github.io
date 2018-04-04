@@ -1,4 +1,6 @@
 var MiniCssExtractPlugin = require("mini-css-extract-plugin")
+var PurgecssPlugin = require('purgecss-webpack-plugin')
+var glob = require('glob')
 var path = require('path')
 
 module.exports = function (env, argv) {
@@ -29,6 +31,9 @@ module.exports = function (env, argv) {
       new MiniCssExtractPlugin({
         filename: 'app.css'
       }),
+      new PurgecssPlugin({
+        paths: glob.sync('_site/**/*.html')
+      })
     ]
   }
 }
