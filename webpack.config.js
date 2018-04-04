@@ -14,6 +14,8 @@ module.exports = function (env, argv) {
     devServer: {
       contentBase: path.resolve(__dirname, '_site'),
       publicPath: '/dist/'
+      publicPath: '/dist/',
+      open: true
     },
     module: {
       rules: [
