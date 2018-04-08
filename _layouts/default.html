@@ -9,7 +9,9 @@
         <meta name="description" content="{{ page.description }}">
     {% endif %}
 
-    <link rel="stylesheet" href="/dist/app.css">
+    {% if jekyll.environment == 'production' %}
+        <link rel="stylesheet" href="/dist/app.css">
+    {% endif %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
