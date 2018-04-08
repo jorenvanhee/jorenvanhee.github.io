@@ -28,12 +28,14 @@ collections:
 # Build settings
 markdown: kramdown
 exclude: [
+  'tags',
   'node_modules',
   'package.json',
   'tailwind.js',
   'yarn.lock',
   'webpack.config.js',
   'postcss.config.js',
+  '_assets',
 ]
 keep_files: [
   'dist',

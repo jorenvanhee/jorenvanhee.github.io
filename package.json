@@ -4,6 +4,8 @@
     "build": "jekyll build && webpack --mode production"
   },
   "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "concurrently": "^3.5.1",
     "css-loader": "^0.28.11",
     "glob": "^7.1.2",

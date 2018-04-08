@@ -1,3 +1,4 @@
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 var MiniCssExtractPlugin = require("mini-css-extract-plugin")
 var PurgecssPlugin = require('purgecss-webpack-plugin')
 var glob = require('glob')
@@ -15,7 +16,7 @@ module.exports = function (env, argv) {
     devServer: {
       contentBase: path.resolve(__dirname, '_site'),
       publicPath: '/dist/',
-      open: true
+      port: 8080
     },
     module: {
       rules: [
@@ -35,6 +36,15 @@ module.exports = function (env, argv) {
       }),
       new PurgecssPlugin({
         paths: glob.sync('_site/**/*.html')
+      }),
+      new BrowserSyncPlugin({
+        host: 'localhost',
+        port: 3000,
+        proxy: 'http://localhost:8080',
+        files: ['./_site/**/*.html'],
+        notify: false
+      }, {
+        reload: false
       })
     ]
   }
