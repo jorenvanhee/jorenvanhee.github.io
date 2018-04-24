@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "concurrently \"livereload _site\" \"jekyll build --incremental --watch\" \"webpack-dev-server --hot --mode development\" --prefix-colors bgYellow.white.bold,bgRed.white.bold.dim,bgBlue.white.bold",
+    "dev": "concurrently \"livereload _site\" \"jekyll build --incremental --watch\" \"webpack-dev-server --hot --mode development\" --prefix-colors bgYellow.white.bold,bgMagenta.white.bold,bgBlue.white.bold",
     "build": "jekyll build && webpack --mode production"
   },
   "devDependencies": {
