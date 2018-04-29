@@ -1,0 +1,11 @@
+.highlight {
+    @apply
+        .mb-6 .-mx-4 .p-4
+        .border .border-grey-light
+        .bg-white
+        .rounded-sm .shadow-sm;
+}
+
+.highlight code {
+    @apply .font-mono;
+}

@@ -1,0 +1,14 @@
+.markdown {
+    ul,
+    ol {
+        @apply .mb-6 .pl-8;
+    }
+
+    h1 {
+        @apply .t-alpha;
+    }
+
+    h2 {
+        @apply .t-beta;
+    }
+}

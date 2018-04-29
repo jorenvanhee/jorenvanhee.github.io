@@ -1,0 +1,7 @@
+p code {
+    @apply
+        .font-mono
+        .pb-px .px-1
+        .bg-white
+        .border .border-grey-light .rounded-sm;
+}

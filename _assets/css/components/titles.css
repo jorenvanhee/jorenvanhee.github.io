@@ -1,0 +1,11 @@
+.t-alpha {
+    @apply
+        .font-serif .font-normal .text-black .leading-tight .text-2xl
+        .mb-6 .mt-10;
+}
+
+.t-beta {
+    @apply
+        .font-serif .font-normal .text-black .leading-tight .text-xl
+        .mb-6 .mt-9;
+}

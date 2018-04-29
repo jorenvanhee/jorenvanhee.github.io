@@ -1,0 +1,17 @@
+html {
+    font-size: 16px;
+
+    @screen sm {
+        font-size: 18px;
+    }
+}
+
+body {
+    @apply .font-sans .leading-normal .text-grey-darkest;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+p {
+    @apply .mb-6;
+}

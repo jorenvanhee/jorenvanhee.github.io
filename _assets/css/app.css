@@ -35,6 +35,13 @@
  * @import "components/buttons";
  * @import "components/forms";
  */
+@import "elements/page";
+@import "elements/type";
+@import "elements/p-code";
+@import "components/highlight";
+@import "components/container";
+@import "components/markdown";
+@import "components/titles";
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

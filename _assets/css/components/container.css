@@ -1,0 +1,7 @@
+.container {
+    @apply
+        .px-4
+        .mx-auto;
+
+    max-width: 35rem;
+}
