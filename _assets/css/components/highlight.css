@@ -1,9 +1,17 @@
 .highlight {
     @apply
         .mb-6 .-mx-4 .p-4
-        .border .border-grey-light
+        .border-t .border-b .border-grey-light
         .bg-white
-        .rounded-sm .shadow-sm;
+        .shadow-sm;
+
+    @screen sm {
+        @apply .-mx-6 .px-6;
+    }
+
+    @screen md {
+        @apply .rounded-sm .border .-mx-4 .px-4;
+    }
 }
 
 .highlight code {
