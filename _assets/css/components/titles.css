@@ -2,6 +2,10 @@
     @apply
         .font-serif .font-normal .text-black .leading-tight .text-2xl
         .mb-6 .mt-10;
+
+    @screen sm {
+        @apply .text-3xl;
+    }
 }
 
 .t-beta {

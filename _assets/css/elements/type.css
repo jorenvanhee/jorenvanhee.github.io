@@ -1,9 +1,5 @@
 html {
-    font-size: 16px;
-
-    @screen sm {
-        font-size: 18px;
-    }
+    font-size: 18px;
 }
 
 body {

@@ -173,10 +173,11 @@ module.exports = {
   textSizes: {
     // 'xs': '.75rem',     // 12px
     // 'sm': '.875rem',    // 14px
-    'base': '1rem',     // 18px
-    'lg': '1.1111111rem',     // 20px
-    'xl': '1.3333333rem',     // 24px
-    '2xl': '2rem',     // 36px
+    'base': '1rem', // 18px
+    'lg': '1.1111111rem', // 20px
+    'xl': '1.3333333rem', // 24px
+    '2xl': '1.7777777rem', // 32px
+    '3xl': '2rem', // 36px
     // 'lg': '1.125rem',   // 18px
     // 'xl': '1.25rem',    // 20px
     // '2xl': '1.5rem',    // 24px
