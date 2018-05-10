@@ -11,7 +11,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Assistant|Lora" rel="stylesheet">
 
-    {% if jekyll.environment == 'production' %}
+    {% if jekyll.environment != 'development' %}
         <link rel="stylesheet" href="/dist/app.css">
     {% endif %}
 
