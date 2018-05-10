@@ -36,6 +36,8 @@ exclude: [
   'webpack.config.js',
   'postcss.config.js',
   '_assets',
+  'Gemfile',
+  'Gemfile.lock',
 ]
 keep_files: [
   'dist',
