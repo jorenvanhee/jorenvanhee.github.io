@@ -21,7 +21,9 @@
 
 {{ content }}
 
-<script src="/dist/main.js"></script>
+{% if jekyll.environment == 'development' %}
+    <script src="/dist/main.js"></script>
+{% endif %}
 
 {% if jekyll.environment == 'production' %}
     <script>
