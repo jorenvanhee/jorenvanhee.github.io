@@ -14,7 +14,8 @@ deploy:
   github-token: $GITHUB_TOKEN
   local-dir: _site
   on:
-    branch: tailwind-css
+    branch: site
+  target-branch: master
 cache:
   - bundler
   - yarn
