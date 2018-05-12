@@ -42,6 +42,7 @@
 @import "components/container";
 @import "components/markdown";
 @import "components/titles";
+@import "components/anchor";
 @import "vendor/pygments-github";
 
 /**

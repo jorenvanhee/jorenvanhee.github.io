@@ -6,6 +6,10 @@
     @screen sm {
         @apply .text-3xl;
     }
+
+    @screen lg {
+        @apply .mt-11
+    }
 }
 
 .t-beta {

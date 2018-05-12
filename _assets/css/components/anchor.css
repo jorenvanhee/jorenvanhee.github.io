@@ -1,0 +1,9 @@
+.anchor {
+    @apply .no-underline .border-b-3 .border-grey-light .text-black;
+
+    transition: border-color .075s ease-in-out;
+
+    &:hover {
+        @apply .border-grey;
+    }
+}
