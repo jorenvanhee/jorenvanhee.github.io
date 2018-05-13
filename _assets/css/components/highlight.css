@@ -5,12 +5,18 @@
         .bg-white
         .shadow-sm;
 
-    @screen sm {
-        @apply .-mx-6 .px-6;
-    }
+    margin-left: calc(var(--container-padding) * -1);
+    margin-right: calc(var(--container-padding) * -1);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
 
     @screen md {
-        @apply .rounded-sm .border .-mx-4 .px-4;
+        @apply .rounded-sm .border;
+
+        margin-left: calc(var(--container-padding) * -0.5);
+        margin-right: calc(var(--container-padding) * -0.5);
+        padding-left: calc(var(--container-padding) * 0.5);
+        padding-right: calc(var(--container-padding) * 0.5);
     }
 }
 

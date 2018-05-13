@@ -35,6 +35,7 @@
  * @import "components/buttons";
  * @import "components/forms";
  */
+@import "settings/variables";
 @import "elements/page";
 @import "elements/type";
 @import "elements/p-code";

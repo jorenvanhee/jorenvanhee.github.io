@@ -1,0 +1,11 @@
+:root {
+    --container-padding: config('padding.4');
+
+    @screen sm {
+        --container-padding: config('padding.6');
+    }
+
+    @screen md {
+        --container-padding: config('padding.8');
+    }
+}

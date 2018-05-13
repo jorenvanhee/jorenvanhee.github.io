@@ -3,12 +3,10 @@
         .px-4
         .mx-auto;
 
-    @screen sm {
-        @apply .px-6;
-    }
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
 
     @screen md {
-        @apply .px-8;
         max-width: 34rem;
     }
 }
