@@ -15,5 +15,5 @@
 .t-beta {
     @apply
         .font-serif .font-normal .text-black .leading-tight .text-xl
-        .mb-6 .mt-9;
+        .mb-4 .mt-9;
 }
