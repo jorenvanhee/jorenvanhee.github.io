@@ -1,5 +1,4 @@
-pre.highlight,
-.highlightr {
+.highlight {
     @apply
         .mb-6 .-mx-4 .p-4
         .border-t .border-b .border-grey-light
@@ -21,6 +20,6 @@ pre.highlight,
     }
 }
 
-pre.highlight code {
+.highlight code {
     @apply .font-mono;
 }
