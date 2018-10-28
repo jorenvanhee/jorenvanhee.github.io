@@ -53,9 +53,9 @@ I added an array of users to the `safeUp` method, then loop through the array, a
 public function safeUp()
 {
     $users = [
-        ['joren', 'joren@glue.be'],
-        ['bart', 'bart@glue.be'],
-        ['jan', 'jan@glue.be'],
+        ['george', 'george@agency.com'],
+        ['barry', 'barry@agency.com'],
+        ['jean', 'jean@agency.com'],
     ];
 
     foreach ($users as $userData) {
