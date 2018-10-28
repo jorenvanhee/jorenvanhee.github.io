@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Assistant:400,700|Lora" rel="stylesheet">
 
     {% if jekyll.environment != 'development' %}
-        <link rel="stylesheet" href="/dist/app.css">
+        <link rel="stylesheet" href="/dist/app.css?v={{ site.time | date_to_xmlschema }}">
     {% endif %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
