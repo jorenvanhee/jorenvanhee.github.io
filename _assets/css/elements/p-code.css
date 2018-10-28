@@ -1,6 +1,6 @@
 p code {
     @apply
-        .font-mono
+        .font-mono .text-code
         .py-px .px-1
         .bg-white
         .border .border-grey-light .rounded-sm;
