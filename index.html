@@ -14,9 +14,9 @@ layout: default
     {% if site.posts.size > 0 %}
         <h2 class="t-beta">Articles</h2>
 
-        <ul class="list-reset">
+        <ul class="list-reset leading-pretty-tight">
             {% for post in site.posts %}
-                <li><a href="{{ post.url }}" class="anchor">{{ post.title }}</a></li>
+                <li class="mb-3"><a href="{{ post.url }}" class="anchor">{{ post.title }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -24,9 +24,9 @@ layout: default
     {% if site.projects.size > 0 %}
         <h2 class="t-beta">Projects</h2>
 
-        <ul class="list-reset">
+        <ul class="list-reset leading-pretty-tight">
             {% for project in site.projects %}
-                <li><a href="{{ project.external.url }}" class="anchor">{{ project.title }}</a></li>
+                <li class="mb-3"><a href="{{ project.external.url }}" class="anchor">{{ project.title }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}   

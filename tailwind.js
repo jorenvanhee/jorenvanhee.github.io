@@ -229,6 +229,7 @@ module.exports = {
   leading: {
     'none': 1,
     'tight': 1.3333333,
+    'pretty-tight': 1.4444444,
     'normal': 1.6111111,
     'loose': 2,
   },
