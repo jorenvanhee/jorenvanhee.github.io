@@ -1,9 +1,9 @@
-.highlight {
+.highlight code,
+.highlight.highlight--standalone {
     @apply
-        .mb-6 .-mx-4 .p-4
+        .block .mb-6 .-mx-4 .p-4
         .border-t .border-b .border-grey-light
-        .bg-white
-        .shadow-sm;
+        .bg-white .shadow-sm .font-mono;
 
     margin-left: calc(var(--container-padding) * -1);
     margin-right: calc(var(--container-padding) * -1);
@@ -21,5 +21,5 @@
 }
 
 .highlight code {
-    @apply .font-mono;
+    @apply .overflow-auto;
 }
