@@ -91,4 +91,4 @@ protected function createUser($username, $email)
 }
 {% endhighlight %}
 
-The users can now login with their email address as password. But only in a local environment. They are forced to set a new password in production or development.
+Execute the migration by running `./craft migrate/up`. The users can now login with their email address as password. But only in a local environment. They are forced to set a new password in production or development.
