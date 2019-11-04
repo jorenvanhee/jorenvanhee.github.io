@@ -9,7 +9,7 @@
  *
  * @import "tailwindcss/preflight";
  */
-@import "tailwindcss/preflight";
+@import "tailwindcss/base";
 
 /**
  * This injects any component classes registered by plugins.
