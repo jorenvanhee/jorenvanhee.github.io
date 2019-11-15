@@ -25,7 +25,9 @@ layout: default
         <h2 class="t-beta">Projects</h2>
 
         <ul class="leading-pretty-tight">
-            {% for project in site.projects %}
+            {% assign sortedProjects = (site.projects | sort: 'date') | reverse %}
+
+            {% for project in sortedProjects %}
                 <li class="mb-3"><a href="{{ project.external.url }}" class="anchor">{{ project.title }}</a></li>
             {% endfor %}
         </ul>
