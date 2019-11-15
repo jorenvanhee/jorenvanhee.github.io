@@ -1,7 +1,7 @@
 .markdown {
     ul,
     ol {
-        @apply .mb-6 .pl-8;
+        @apply .mb-6 .pl-8 .list-disc;
     }
 
     h1 {

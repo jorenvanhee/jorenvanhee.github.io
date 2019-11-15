@@ -12,6 +12,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-p {
+p,
+hr {
     @apply .mb-6;
 }
