@@ -15,9 +15,9 @@ layout: default
         <h2 class="t-beta">Articles</h2>
 
         <ul class="leading-pretty-tight">
-            {% for post in site.posts %}
+            {% for post in site.posts %}{% if post.hidden != true %}
                 <li class="mb-3"><a href="{{ post.url }}" class="anchor">{{ post.title }}</a></li>
-            {% endfor %}
+            {% endif %}{% endfor %}
         </ul>
     {% endif %}
 

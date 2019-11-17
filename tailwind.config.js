@@ -244,6 +244,9 @@ module.exports = {
       'current': 'currentColor',
     },
   },
+  plugins: [
+    require('tailwindcss-debug-screens'),
+  ],
   corePlugins: {
     container: false
   },
