@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joren Van Hee</title>
+    <link>http://joren.co/</link>
+    <atom:link href="http://joren.co/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 14 Mar 2021 17:05:11 +0000</pubDate>
+    <lastBuildDate>Sun, 14 Mar 2021 17:05:11 +0000</lastBuildDate>
+    <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Tailwind CSS Debug Screens</title>
+        <description>&lt;p&gt;This is a demonstration of the &lt;a href=&quot;https://github.com/jorenvanhee/tailwindcss-debug-screens&quot;&gt;Tailwind CSS Debug Screens&lt;/a&gt; plugin. You can find the component provided by the plugin at the bottom left corner of the window. Resize your window and see how it displays the currently active screen (responsive breakpoint).&lt;/p&gt;
+</description>
+        <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+        <link>http://joren.co/tailwindcss-debug-screens-demo/</link>
+        <guid isPermaLink="true">http://joren.co/tailwindcss-debug-screens-demo/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Add users to Craft with content migrations</title>
+        <description>&lt;p&gt;I work at a web agency, where we mostly use Craft CMS to build websites. For each website, the same group of people needs access to the control panel. We could manually create their user accounts. Or we could automate it, and play foosball with the time we saved.&lt;/p&gt;
+
+&lt;p&gt;Craft CMS content migrations is the perfect tool for the job. We’ll use migrations to populate the database with a predefined list of users. I suggest you take a look at the &lt;a href=&quot;https://docs.craftcms.com/v3/content-migrations.html&quot;&gt;documentation&lt;/a&gt;, if you’re not already familiar with content migrations.&lt;/p&gt;
+
+&lt;p&gt;To create the migration, run the following command in your terminal:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./craft migrate/create add_users&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will create a new migration file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;migrations&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;craft\contentmigrations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Craft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;craft\db\Migration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;/**
+ * m181027_161404_add_users migration.
+ */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;m181027_161404_add_users&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Migration&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;/**
+     * @inheritdoc
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;safeUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Place migration code here...&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;sd&quot;&gt;/**
+     * @inheritdoc
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;safeDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;m181027_161404_add_users cannot be reverted.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I added an array of users to the &lt;code class=&quot;highlighter-rouge&quot;&gt;safeUp&lt;/code&gt; method, then loop through the array, and create the users.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;safeUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'george'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'george@agency.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'barry'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'barry@agency.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'jean'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'jean@agency.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$users&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$userData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$userData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;createUser&lt;/code&gt; method adds the users to the database.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;craft\elements\User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;createUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;admin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newPassword&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CRAFT_ENVIRONMENT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'local'&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;uniqid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+
+    &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;passwordResetRequired&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CRAFT_ENVIRONMENT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'local'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;Craft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getElements&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;saveElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Execute the migration by running &lt;code class=&quot;highlighter-rouge&quot;&gt;./craft migrate/up&lt;/code&gt;. The users can now login with their email address as password. But only in a local environment. They are forced to set a new password in production or development.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 28 Oct 2018 00:00:00 +0000</pubDate>
+        <link>http://joren.co/add-users-to-craft-with-content-migrations/</link>
+        <guid isPermaLink="true">http://joren.co/add-users-to-craft-with-content-migrations/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Flex-grow 9999 Hack</title>
+        <description>&lt;p&gt;The Germans broke my CSS a while ago. Well, not literally, but their long words did. A few days before the issue occurred, I saw a talk by Zoe Mickley Gillenwater at Frontend United entitled “Using Flexbox Today”. That talk inspired me to solve the problem with flexbox.&lt;/p&gt;
+
+&lt;p&gt;Before I explain the flex-grow 9999 hack in detail, let me briefly describe what it does. The flex-grow 9999 hack makes a flex item behave like it has two flex grow values. It prevents a flex item in a row from growing, but allows it to grow if it’s wrapped into its own line. All without the use of media queries.&lt;/p&gt;
+
+&lt;p&gt;If that didn’t make sense, don’t worry. The example should make it clear.&lt;/p&gt;
+
+&lt;p&gt;Imagine a flex container (&lt;code class=&quot;highlighter-rouge&quot;&gt;display: flex&lt;/code&gt;) with two flex items in a row (&lt;code class=&quot;highlighter-rouge&quot;&gt;flex-direction: row&lt;/code&gt;). Item A on the left, and item B on the right. Item A can not grow, so I give it a &lt;code class=&quot;highlighter-rouge&quot;&gt;flex-grow&lt;/code&gt; value of &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt; (the default value). Item B has to take up all the remaining space in the container. This can be done with &lt;code class=&quot;highlighter-rouge&quot;&gt;flex-grow: 1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I would like the flex items to be stacked on top of each other when necessary. Item B has to jump onto the second line, if there’s not enough space for it to be at least 20 ems wide. Adding &lt;code class=&quot;highlighter-rouge&quot;&gt;flex-wrap: wrap&lt;/code&gt; to the container and &lt;code class=&quot;highlighter-rouge&quot;&gt;flex-basis: 20em&lt;/code&gt; to item B does the job.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-direction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.item-a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-grow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.item-b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-grow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-basis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You can see what we have so far on &lt;a href=&quot;https://jsfiddle.net/jorenvanhee/rmaeak0q/0/&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight highlight--standalone py-6&quot;&gt;
+    &lt;img class=&quot;block w-full mx-auto&quot; alt=&quot;&quot; src=&quot;/assets/collections/posts/flex-grow-9999-hack/sketch1_w_350.jpg&quot; srcset=&quot;/assets/collections/posts/flex-grow-9999-hack/sketch1_w_350.jpg 350w, /assets/collections/posts/flex-grow-9999-hack/sketch1_w_700.jpg 700w&quot; sizes=&quot;350px&quot; style=&quot;max-width: 350px;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now comes the tricky part. I want item A to stretch to the entire width of the container, only if the items are wrapped into multiple lines. We could use media queries to update the &lt;code class=&quot;highlighter-rouge&quot;&gt;flex-grow&lt;/code&gt; value, but in my case, the breakpoint was hard to define.&lt;/p&gt;
+
+&lt;p&gt;Reasons why the breakpoint could be hard to define are:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The width of item A is unknown. For instance, it contains words that are longer in another language.&lt;/li&gt;
+  &lt;li&gt;We don’t know the width of the components parent element. For instance, if it is used in a sidebar and in some other places.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let’s do this without media queries. We will update the &lt;code class=&quot;highlighter-rouge&quot;&gt;flex-grow&lt;/code&gt; value of item A to &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;. The problem now is that item A will also grow if both items are next to each other. To fix this, we can assign a ridiculously large &lt;code class=&quot;highlighter-rouge&quot;&gt;flex-grow&lt;/code&gt; value like &lt;code class=&quot;highlighter-rouge&quot;&gt;9999&lt;/code&gt; to item B.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-direction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.item-a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-grow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.item-b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-grow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;flex-basis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the final result on &lt;a href=&quot;https://jsfiddle.net/jorenvanhee/rmaeak0q/&quot;&gt;JSFiddle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight highlight--standalone py-6&quot;&gt;
+    &lt;img class=&quot;block w-full mx-auto&quot; alt=&quot;&quot; src=&quot;/assets/collections/posts/flex-grow-9999-hack/sketch2_w_350.jpg&quot; srcset=&quot;/assets/collections/posts/flex-grow-9999-hack/sketch2_w_350.jpg 350w, /assets/collections/posts/flex-grow-9999-hack/sketch2_w_700.jpg 700w&quot; sizes=&quot;350px&quot; style=&quot;max-width: 350px;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So why does this work? Flex grow defines how much of the remaining free space a flex item receives. Let’s say there are 100 pixels of free space left. We can then give item A 1/4 (25px) of the remaining space (&lt;code class=&quot;highlighter-rouge&quot;&gt;flex-grow: 1&lt;/code&gt;), and item B 3/4 (75px) of the remaining space (&lt;code class=&quot;highlighter-rouge&quot;&gt;flex-grow: 3&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;In our case item A gets 1/10000 of the remaining space, which results in 0 pixels (1 / 10000 * 100 = 0.01). Eventually, if there’s enough remaining space, item A will receive some pixels. But you’d need a very large screen for that to happen. You can do the math yourself.&lt;/p&gt;
+
+&lt;p&gt;If you want to read a more in depth article on how flex grow works, there’s &lt;a href=&quot;https://css-tricks.com/flex-grow-is-weird/&quot;&gt;an excellent blog post&lt;/a&gt; on css-tricks.com.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
+        <link>http://joren.co/flex-grow-9999-hack/</link>
+        <guid isPermaLink="true">http://joren.co/flex-grow-9999-hack/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

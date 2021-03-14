@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Add users to Craft with content migrations</title>
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Assistant:400,700|Lora" rel="stylesheet">
+
+    
+        <link rel="stylesheet" href="/dist/app.css?v=2021-03-14T17:05:11+00:00">
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="">
+
+<div class="border-b bg-white pt-3 pb-4 shadow-sm">
+    <div class="container md:max-w-full md:px-5">
+        <a href="/" class="anchor">← Joren.co</a>
+    </div>
+</div>
+
+<div class="container markdown">
+
+    <h1>Add users to Craft with content migrations</h1>
+
+    <p>I work at a web agency, where we mostly use Craft CMS to build websites. For each website, the same group of people needs access to the control panel. We could manually create their user accounts. Or we could automate it, and play foosball with the time we saved.</p>
+
+<p>Craft CMS content migrations is the perfect tool for the job. We’ll use migrations to populate the database with a predefined list of users. I suggest you take a look at the <a href="https://docs.craftcms.com/v3/content-migrations.html">documentation</a>, if you’re not already familiar with content migrations.</p>
+
+<p>To create the migration, run the following command in your terminal:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./craft migrate/create add_users</code></pre></figure>
+
+<p>This will create a new migration file in the <code class="highlighter-rouge">migrations</code> folder.</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">craft\contentmigrations</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Craft</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">craft\db\Migration</span><span class="p">;</span>
+
+<span class="sd">/**
+ * m181027_161404_add_users migration.
+ */</span>
+<span class="k">class</span> <span class="nc">m181027_161404_add_users</span> <span class="k">extends</span> <span class="nx">Migration</span>
+<span class="p">{</span>
+    <span class="sd">/**
+     * @inheritdoc
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">safeUp</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Place migration code here...</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+     * @inheritdoc
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">safeDown</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"m181027_161404_add_users cannot be reverted.</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>I added an array of users to the <code class="highlighter-rouge">safeUp</code> method, then loop through the array, and create the users.</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">public</span> <span class="k">function</span> <span class="nf">safeUp</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$users</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s1">'george'</span><span class="p">,</span> <span class="s1">'george@agency.com'</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">'barry'</span><span class="p">,</span> <span class="s1">'barry@agency.com'</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">'jean'</span><span class="p">,</span> <span class="s1">'jean@agency.com'</span><span class="p">],</span>
+    <span class="p">];</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$userData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nv">$username</span><span class="p">,</span> <span class="nv">$email</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$userData</span><span class="p">;</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createUser</span><span class="p">(</span><span class="nv">$username</span><span class="p">,</span> <span class="nv">$email</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The <code class="highlighter-rouge">createUser</code> method adds the users to the database.</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">use</span> <span class="nx">craft\elements\User</span><span class="p">;</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="k">protected</span> <span class="k">function</span> <span class="nf">createUser</span><span class="p">(</span><span class="nv">$username</span><span class="p">,</span> <span class="nv">$email</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">;</span>
+
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span> <span class="o">=</span> <span class="nv">$username</span><span class="p">;</span>
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">email</span> <span class="o">=</span> <span class="nv">$email</span><span class="p">;</span>
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">admin</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">newPassword</span> <span class="o">=</span> <span class="nx">CRAFT_ENVIRONMENT</span> <span class="o">===</span> <span class="s1">'local'</span>
+        <span class="o">?</span> <span class="nv">$email</span>
+        <span class="o">:</span> <span class="nb">md5</span><span class="p">(</span><span class="nb">uniqid</span><span class="p">()</span><span class="o">.</span><span class="nb">rand</span><span class="p">());</span>
+
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">passwordResetRequired</span> <span class="o">=</span> <span class="nx">CRAFT_ENVIRONMENT</span> <span class="o">!==</span> <span class="s1">'local'</span><span class="p">;</span>
+
+    <span class="nx">Craft</span><span class="o">::</span><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">getElements</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">saveElement</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Execute the migration by running <code class="highlighter-rouge">./craft migrate/up</code>. The users can now login with their email address as password. But only in a local environment. They are forced to set a new password in production or development.</p>
+
+
+    <hr>
+
+    <p>Questions, comments or suggestions?<br><a href="https://github.com/jorenvanhee/jorenvanhee.github.io/issues/new?title=Add users to Craft with content migrations">Open an issue</a> on GitHub, or contact me via Twitter <a href="https://twitter.com/jorenvanhee">@jorenvanhee</a>.</p>
+
+</div>
+
+
+
+
+
+    <script>
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-46671545-4','auto');ga('send','pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+
+
+</body>
+</html>
