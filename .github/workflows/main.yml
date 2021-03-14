@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.5 # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - run: npm install
+      - run: npm run build
+        env:
+          JEKYLL_ENV: production
+      - uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: master
+          build_dir: _site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

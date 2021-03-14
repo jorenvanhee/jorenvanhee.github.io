@@ -34,6 +34,7 @@ exclude: [
   '_assets',
   'Gemfile',
   'Gemfile.lock',
+  'vendor',
 ]
 keep_files: [
   'dist',
